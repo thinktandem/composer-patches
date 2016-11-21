@@ -336,8 +336,8 @@ class Patches implements PluginInterface, EventSubscriberInterface {
   protected function getAndApplyPatch(RemoteFilesystem $downloader, $install_path, $patch_url) {
 
     // Local patch file.
-    if (file_exists($patch_url)) {
-      $filename = realpath($patch_url);
+    if (file_exists(getcwd() . "/" . $patch_url)) {
+      $filename = realpath(getcwd() . "/" . $patch_url);
     }
     else {
       // Generate random (but not cryptographically so) filename.
